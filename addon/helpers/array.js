@@ -1,7 +1,17 @@
 import Ember from 'ember';
 
-export function array(params/*, hash*/) {
-  return params;
-}
+const {
+  Helper: { helper },
+  A: newArray
+} = Ember;
 
-export default Ember.Helper.helper(array);
+export default helper(params => {
+  // this has a bug in ember 2.9 beta
+  // https://github.com/emberjs/ember.js/issues/14264
+  // let array = newArray(params);
+
+  let array = newArray();
+  array.pushObjects(params);
+
+  return array;
+});
