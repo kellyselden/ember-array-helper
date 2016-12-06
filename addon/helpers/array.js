@@ -6,8 +6,8 @@ const {
 } = Ember;
 
 export default helper(params => {
-  // this has a bug in ember 2.9 beta
-  // https://github.com/emberjs/ember.js/issues/14264
+  // this has a bug in ember 2.10
+  // https://github.com/emberjs/ember.js/pull/14649
   // let array = newArray(params);
 
   let array = newArray();
