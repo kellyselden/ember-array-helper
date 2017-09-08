@@ -1,1 +1,1 @@
-export { default, array } from 'ember-array-helper/helpers/array';
+export { default } from 'ember-array-helper/helpers/array';
