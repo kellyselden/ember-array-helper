@@ -1,12 +1,13 @@
-import { test } from 'qunit';
-import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
+import { module, test } from 'qunit';
+import { visit } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
 
-moduleForAcceptance('Acceptance | application');
+module('Acceptance | application', function(hooks) {
+  setupApplicationTest(hooks);
 
-test('it is a usable array after passing to component js', function(assert) {
-  visit('/');
+  test('it is a usable array after passing to component js', async function(assert) {
+    await visit('/');
 
-  andThen(function() {
-    assert.equal(find('.second-item').text().trim(), '2');
+    assert.dom('.second-item').hasText('2');
   });
 });
