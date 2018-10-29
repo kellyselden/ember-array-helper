@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, findAll } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Helper | array', function(hooks) {
@@ -15,7 +15,7 @@ module('Integration | Helper | array', function(hooks) {
       {{/each}}
     `);
 
-    assert.equal(findAll('.first-item').length, 1);
-    assert.equal(findAll('.second-item').length, 1);
+    assert.dom('.first-item').exists({ count: 1 });
+    assert.dom('.second-item').exists({ count: 1 });
   });
 });
